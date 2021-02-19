@@ -2,7 +2,7 @@
 
 ## Actions
 
-Control the Middleware: Dispatch these actions to the stop in order to start or stop the middleware:
+Control the Middleware: Dispatch these actions to the Store in order to start or stop the middleware:
 
 ```swift
 ReachabilityEvent.startMonitoring      // Start the NWPathMonitor and the Middleware actions
