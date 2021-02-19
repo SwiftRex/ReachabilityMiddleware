@@ -39,7 +39,7 @@ public struct NWPathMonitorPublisher: Publisher {
         }
 
         func request(_ demand: Subscribers.Demand) {
-            guard !isRunning else { return }
+            guard !isRunning, demand > 0 else { return }
 
             lock.lock()
             defer { lock.unlock() }
@@ -60,6 +60,7 @@ public struct NWPathMonitorPublisher: Publisher {
                 guard let self = self else { return }
                 _ = self.subscriber?.receive(path)
             }
+            pathMonitor.start(queue: .main)
         }
     }
 }
