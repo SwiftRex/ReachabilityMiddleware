@@ -22,8 +22,6 @@ public class NWPathMock: NWPathProtocol {
     public var usesInterfaceTypeCalls: Int = 0
     public var usesInterfaceTypeCallsParams: [NWInterface.InterfaceType] = []
 
-
-
     public func usesInterfaceType(_ type: NWInterface.InterfaceType) -> Bool {
         usesInterfaceTypeCalls += 1
         usesInterfaceTypeCallsParams += [type]
