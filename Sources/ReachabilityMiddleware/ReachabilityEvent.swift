@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ReachabilityEvent: Equatable {
+public enum ReachabilityEvent: Hashable {
     /// Start the NWPathMonitor and the Middleware actions
     case startMonitoring
     /// Stop the NWPathMonitor and cease the actions

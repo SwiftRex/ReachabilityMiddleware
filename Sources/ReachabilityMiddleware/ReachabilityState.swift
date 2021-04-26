@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ReachabilityState: Equatable, Codable {
+public struct ReachabilityState: Codable, Hashable {
     /// The Middleware is active, so the NWPathMonitor is observing changes
     public let isMonitoring: Bool
     /// What's the latest known interface used to connect, or if it's disconnected
@@ -22,7 +22,7 @@ extension ReachabilityState {
     }
 }
 
-public enum ConnectedInterface: String, Equatable, Codable {
+public enum ConnectedInterface: String, Codable, Hashable {
     /// cellular (3G, LTE, 5G networks)
     case cellular
     /// Wi-fi, including Personal Hotpots
