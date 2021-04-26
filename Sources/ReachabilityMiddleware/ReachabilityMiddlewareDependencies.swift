@@ -1,9 +1,10 @@
+
 import Combine
 import Network
 
 public struct ReachabilityMiddlewareDependencies {
-    public let pathMonitor: () -> AnyPublisher<NWPath, Never>
-    public init(pathMonitor: @escaping () -> AnyPublisher<NWPath, Never>) {
+    public let pathMonitor: () -> AnyPublisher<NWPathProtocol, Never>
+    public init(pathMonitor: @escaping () -> AnyPublisher<NWPathProtocol, Never>) {
         self.pathMonitor = pathMonitor
     }
 
@@ -21,7 +22,7 @@ public struct ReachabilityMiddlewareDependencies {
     }
 
     #if DEBUG
-    public static func forTests(subject: PassthroughSubject<NWPath, Never>) -> ReachabilityMiddlewareDependencies {
+    public static func forTests(subject: PassthroughSubject<NWPathProtocol, Never>) -> ReachabilityMiddlewareDependencies {
         ReachabilityMiddlewareDependencies { subject.eraseToAnyPublisher() }
     }
     #endif

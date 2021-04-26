@@ -13,7 +13,7 @@ extension NWPathMonitor {
 /// Publisher for NWPathMonitor, emitting NWPath for every pathUpdateHandler event. It never fails.
 /// Important: it doesn't respect the demand, it's used only in this middleware that asks for unlimited demand.
 public struct NWPathMonitorPublisher: Publisher {
-    public typealias Output = NWPath
+    public typealias Output = NWPathProtocol
     public typealias Failure = Never
 
     private let pathMonitor: NWPathMonitor
@@ -22,12 +22,12 @@ public struct NWPathMonitorPublisher: Publisher {
         self.pathMonitor = pathMonitor
     }
 
-    public func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, NWPath == S.Input {
+    public func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, NWPathProtocol == S.Input {
         let subscription = Subscription(subscriber: subscriber, pathMonitor: pathMonitor)
         subscriber.receive(subscription: subscription)
     }
 
-    private class Subscription<S: Subscriber>: Combine.Subscription where S.Input == NWPath, S.Failure == Never {
+    private class Subscription<S: Subscriber>: Combine.Subscription where S.Input == NWPathProtocol, S.Failure == Never {
         private var subscriber: S?
         private let pathMonitor: NWPathMonitor
         private let lock = NSRecursiveLock()
