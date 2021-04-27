@@ -2,13 +2,13 @@ import Foundation
 
 public struct ReachabilityState: Codable, Hashable {
     /// The Middleware is active, so the NWPathMonitor is observing changes
-    public let isMonitoring: Bool
+    public var isMonitoring: Bool
     /// What's the latest known interface used to connect, or if it's disconnected
-    public let connectivity: ConnectedInterface
+    public var connectivity: ConnectedInterface
     /// The path uses an interface that is considered expensive or not
-    public let isExpensive: Bool
+    public var isExpensive: Bool
     /// The path uses an interface in Low (constrained) or High (unconstrained) Data Mode.
-    public let isConstrained: Bool
+    public var isConstrained: Bool
 }
 
 extension ReachabilityState {
