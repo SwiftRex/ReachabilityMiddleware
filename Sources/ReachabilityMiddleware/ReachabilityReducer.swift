@@ -28,7 +28,7 @@ extension Reducer where ActionType == ReachabilityEvent, StateType == Reachabili
         case .gotOffline:
             state = .init(
                 isMonitoring: state.isMonitoring,
-                connectivity: .none,
+                connectivity: .offline,
                 isExpensive: state.isExpensive,
                 isConstrained: state.isConstrained
             )
