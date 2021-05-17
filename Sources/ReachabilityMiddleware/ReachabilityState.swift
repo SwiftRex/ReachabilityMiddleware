@@ -15,7 +15,7 @@ extension ReachabilityState {
     public static var initial: ReachabilityState {
         .init(
             isMonitoring: false,
-            connectivity: .none,
+            connectivity: .unknown,
             isExpensive: true,
             isConstrained: true
         )
@@ -23,6 +23,8 @@ extension ReachabilityState {
 }
 
 public enum ConnectedInterface: String, Codable, Hashable {
+    /// Initial state, we don't know yet the state of the interface
+    case unknown
     /// cellular (3G, LTE, 5G networks)
     case cellular
     /// Wi-fi, including Personal Hotpots
@@ -30,5 +32,5 @@ public enum ConnectedInterface: String, Codable, Hashable {
     /// Wired Ethernet
     case wired
     /// Disconnected
-    case none
+    case offline
 }

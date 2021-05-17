@@ -35,7 +35,7 @@ where InputActionType == ReachabilityEvent,
 
                                 send(event: .gotOffline,
                                      when: ![.wiredEthernet, .wifi, .cellular].contains(where: path.usesInterfaceType),
-                                     previously: \.connectivity != .none,
+                                     previously: \.connectivity != .offline,
                                      state: state),
 
                                 send(event: .becameExpensive,
