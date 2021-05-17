@@ -32,5 +32,5 @@ public enum ConnectedInterface: String, Codable, Hashable {
     /// Wired Ethernet
     case wired
     /// Disconnected
-    case none
+    case offline
 }
