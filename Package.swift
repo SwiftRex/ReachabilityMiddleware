@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "ReachabilityMiddleware", targets: ["ReachabilityMiddleware"])
     ],
     dependencies: [
-        .package(url: "https://github.com/SwiftRex/SwiftRex.git", from: "0.8.4")
+        .package(url: "https://github.com/SwiftRex/SwiftRex.git", from: "0.8.8")
     ],
     targets: [
         .target(name: "ReachabilityMiddleware", dependencies: ["CombineRex"]),
